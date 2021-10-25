@@ -12,7 +12,9 @@ namespace Exercise
         {
             Console.WriteLine("Ingrese el número de elementos que quiere que se generen:");
             string range = Console.ReadLine();
-            validation.valide(range);           
+            validation.valide(range);
+            
+            
         }
     }
 }

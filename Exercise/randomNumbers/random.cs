@@ -16,10 +16,7 @@ namespace Exercise.randomNumbers
             Route route = new Route();
             Random Random = new Random();
             StringBuilder sb = new StringBuilder();
-            string starTime = DateTime.Now.ToString("hh:mm:ss:fff tt");
-            string finalTime = DateTime.Now.ToString("hh:mm:ss:fff tt");
-
-            Console.WriteLine($"Tiempo de inicio: {starTime}");
+            
 
 
             //Español: Agrega números random a la lista
@@ -37,7 +34,7 @@ namespace Exercise.randomNumbers
                 sb.AppendLine(item.ToString());
             }
             File.WriteAllText(route.bindPath(), sb.ToString());
-            Console.WriteLine($"Tiempo final: {finalTime}");          
+                   
         }
     }
 }

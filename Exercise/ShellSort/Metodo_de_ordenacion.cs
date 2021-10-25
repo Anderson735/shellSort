@@ -18,6 +18,11 @@ namespace Exercise.ShellSort
             Route route = new Route();
             Stopwatch watch = new Stopwatch();
             watch.Start();
+            string starTime = DateTime.Now.ToString("hh:mm:ss:fff tt");
+            string finalTime = DateTime.Now.ToString("hh:mm:ss:fff tt");
+
+            
+
 
             //Español: Lee el archivo de texto y toma los números para luego insertarlos en la lista
 
@@ -63,19 +68,21 @@ namespace Exercise.ShellSort
                 {
                     Console.WriteLine(k);
                 }
+                watch.Stop();
+
+                TimeSpan timeSpan = watch.Elapsed;
+
+                Console.WriteLine("Tiempo que se tardo en ordenar {0} datos e imprimirlos por pantalla: {1}h {2}m {3}s {4}ms", Lists.textFileNumbers.Count, timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
 
                 //Español: Inserta los números ya de forma ordenada en un nuevo archivo de texto
                 //Ingles: Insert the numbers already neatly into a new text file
+                Console.WriteLine($"Tiempo en el que empezo a guardar el listado ya ordenado: {starTime}");
                 foreach (var item in Lists.textFileNumbers)
                 {
                     sb.AppendLine(item.ToString());
                 }
                 File.WriteAllText(route.sortRoute(), sb.ToString());
-                watch.Stop();
-
-                TimeSpan timeSpan = watch.Elapsed;
-
-                Console.WriteLine("Tiempo que se tardo en ordenar {0} datos: {1}h {2}m {3}s {4}ms",Lists.textFileNumbers.Count ,timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+                Console.WriteLine($"Tiempo en el que finalizo: {finalTime}");
             }
         }
     }
